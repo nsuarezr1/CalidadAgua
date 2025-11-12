@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="hero">
+        <h1>Sistema de Monitoreo de Calidad de Agua en Colombia</h1>
+        <p class="subtitle">Análisis y visualización de datos de calidad hídrica en el territorio colombiano</p>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>📊 Datos en Tiempo Real</h3>
+            <p>Accede a información actualizada sobre la calidad del agua en diferentes departamentos de Colombia</p>
+        </div>
+        <div class="feature-card">
+            <h3>📈 Análisis con Power BI</h3>
+            <p>Visualizaciones interactivas y reportes detallados generados con Microsoft Power BI</p>
+        </div>
+        <div class="feature-card">
+            <h3>🌊 Indicadores Clave</h3>
+            <p>Monitoreo de parámetros esenciales: pH, turbidez, contaminantes y más</p>
+        </div>
+    </section>
+
+    <section class="quick-stats">
+        <h2>Resumen de Calidad por Departamento</h2>
+        <div id="stats-container">
+            <p>Cargando datos...</p>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Explora el Dashboard Completo</h2>
+        <a href="{{ url_for('dashboard') }}" class="btn-primary">Ver Dashboard Power BI</a>
+    </section>
+</div>
+
+<script>
+    // Cargar datos desde la API
+    fetch('/api/calidad-agua')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('stats-container');
+            let html = '<div class="stats-grid">';
+            
+            data.departamentos.forEach(dept => {
+                const estadoClass = dept.estado.toLowerCase().replace(' ', '-');
+                html += `
+                    <div class="stat-card ${estadoClass}">
+                        <h4>${dept.nombre}</h4>
+                        <div class="stat-value">${dept.calidad}%</div>
+                        <div class="stat-label">${dept.estado}</div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error cargando datos:', error);
+            document.getElementById('stats-container').innerHTML = 
+                '<p class="error">Error al cargar los datos</p>';
+        });
+</script>
+{% endblock %}

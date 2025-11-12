@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<!-- Power BI JavaScript SDK -->
+<script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.19.1/dist/powerbi.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <section class="dashboard-header">
+        <h1>Dashboard de Calidad de Agua</h1>
+        <p>Reportes interactivos generados con Power BI</p>
+    </section>
+
+    <section class="dashboard-container">
+        <!-- Contenedor donde se cargará el reporte de Power BI -->
+        <div id="powerbi-report" class="powerbi-frame"></div>
+    </section>
+
+    <section class="instructions">
+        <h3>💡 Instrucciones de uso</h3>
+        <ul>
+            <li>Usa los filtros del reporte para explorar datos por región</li>
+            <li>Haz clic en los elementos del gráfico para ver detalles</li>
+            <li>Usa los botones de navegación para cambiar entre páginas del reporte</li>
+        </ul>
+    </section>
+</div>
+
+<script>
+    // Configuración de Power BI
+    const reportConfig = {
+        reportId: '{{ powerbi_config.report_id }}',
+        groupId: '{{ powerbi_config.group_id }}',
+        embedUrl: '{{ powerbi_config.embed_url }}'
+    };
+
+    // Función para cargar el reporte de Power BI
+    function loadPowerBIReport() {
+        // Verificar si tenemos la configuración necesaria
+        if (!reportConfig.embedUrl || reportConfig.embedUrl === 'TU_EMBED_URL') {
+            document.getElementById('powerbi-report').innerHTML = `
+                <div class="config-notice">
+                    <h3>⚙️ Configuración Pendiente</h3>
+                    <p>Para ver el reporte de Power BI, necesitas configurar los siguientes valores en <code>app.py</code>:</p>
+                    <ul>
+                        <li><strong>report_id:</strong> ID del reporte de Power BI</li>
+                        <li><strong>group_id:</strong> ID del workspace</li>
+                        <li><strong>embed_url:</strong> URL de embed del reporte</li>
+                    </ul>
+                    <p>Sigue las instrucciones en la documentación para obtener estos valores.</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Configuración del embed
+        const embedConfig = {
+            type: 'report',
+            id: reportConfig.reportId,
+            embedUrl: reportConfig.embedUrl,
+            accessToken: 'TOKEN_AQUI', // En producción, obtener del backend
+            tokenType: window['powerbi-client'].models.TokenType.Embed,
+            settings: {
+                panes: {
+                    filters: {
+                        expanded: false,
+                        visible: true
+                    }
+                },
+                background: window['powerbi-client'].models.BackgroundType.Transparent,
+                filterPaneEnabled: true,
+                navContentPaneEnabled: true
+            }
+        };
+
+        // Obtener el contenedor
+        const reportContainer = document.getElementById('powerbi-report');
+        
+        // Embed del reporte
+        const powerbi = window['powerbi'];
+        const report = powerbi.embed(reportContainer, embedConfig);
+
+        // Eventos
+        report.off("loaded");
+        report.on("loaded", function () {
+            console.log("Reporte cargado exitosamente");
+        });
+
+        report.off("error");
+        report.on("error", function (event) {
+            console.error("Error al cargar el reporte:", event.detail);
+            reportContainer.innerHTML = `
+                <div class="error-notice">
+                    <h3>❌ Error al cargar el reporte</h3>
+                    <p>No se pudo cargar el reporte de Power BI. Verifica tu configuración.</p>
+                </div>
+            `;
+        });
+    }
+
+    // Cargar el reporte cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', loadPowerBIReport);
+</script>
+{% endblock %}
