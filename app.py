@@ -6,9 +6,9 @@ app = Flask(__name__)
 # Configuración para Power BI
 # Estos valores los obtendrás de Power BI Service
 POWERBI_CONFIG = {
-    'report_id': 'TU_REPORT_ID',  # ID del reporte
-    'group_id': 'TU_GROUP_ID',    # ID del workspace
-    'embed_url': 'TU_EMBED_URL'   # URL de embed del reporte
+    'report_id': '87654321-dcba-4321-8765-cba987654321',  # Tu REPORT_ID
+    'group_id': '12345678-abcd-1234-5678-123456789abc',   # Tu GROUP_ID
+    'embed_url': 'https://app.powerbi.com/reportEmbed?reportId=XXX&groupId=YYY'  # Tu Embed URL
 }
 
 @app.route('/')
