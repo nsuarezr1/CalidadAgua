@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Sistema BI Calidad de Agua</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ title }} | Sistema BI Calidad de Agua</title>
+    <meta name="description" content="Sistema de Business Intelligence para monitoreo y análisis de calidad del agua basado en Power BI y sensores IoT">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_profesional.css') }}">
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>💧 Sistema BI Calidad de Agua</h2>
+                <h2>Sistema BI | Calidad de Agua</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                <li><a href="{{ url_for('dashboard') }}">Dashboard Power BI</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                 <li><a href="{{ url_for('about') }}">Acerca del Proyecto</a></li>
             </ul>
         </div>
@@ -27,8 +28,14 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Sistema de Business Intelligence para Calidad del Agua | Power BI + Flask</p>
-            <p style="font-size: 0.9rem; margin-top: 0.5rem;">4.3M registros • 497 sensores • 98 municipios • 10 parámetros</p>
+            <p><strong>Sistema de Business Intelligence para Calidad del Agua</strong></p>
+            <p>Power BI | SQL Server Data Warehouse | Flask API</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
+                4,365,648 registros | 497 sensores | 98 municipios | 40 propiedades | 10 parámetros
+            </p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">
+                &copy; 2024 Proyecto de Business Intelligence
+            </p>
         </div>
     </footer>
 

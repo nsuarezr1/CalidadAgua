@@ -3,12 +3,11 @@
 {% block content %}
 <div class="container-fluid">
     <section class="dashboard-header">
-        <h1>📊 Dashboard de Business Intelligence - Calidad del Agua</h1>
-        <p>Análisis de 4.3 millones de mediciones de 497 sensores IoT</p>
+        <h1>Dashboard de Business Intelligence</h1>
+        <p>Análisis en tiempo real de 4.3 millones de mediciones de 497 sensores distribuidos en 98 municipios</p>
     </section>
 
     <section class="dashboard-container">
-        <!-- Power BI Report Embed -->
         <iframe 
             title="Sistema BI Calidad de Agua" 
             width="100%" 
@@ -16,38 +15,38 @@
             src="https://app.powerbi.com/view?r=eyJrIjoiMjczNjZkMDQtNDVkYi00MjkzLTg5NDQtMzUxNjIzMGFiZmE0IiwidCI6IjA3ZGE2N2EwLTFmNDMtNGU4Yy05NzdmLTVmODhiNjQ3MGVlNiIsImMiOjR9" 
             frameborder="0" 
             allowFullScreen="true"
-            style="border: none; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
+            style="border: none; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
         </iframe>
     </section>
 
     <section class="instructions">
-        <h3>💡 Instrucciones de uso del Dashboard</h3>
+        <h3>Instrucciones de Uso</h3>
         <ul>
-            <li><strong>Filtros:</strong> Utiliza los filtros laterales para explorar datos por municipio, propiedad o sensor</li>
-            <li><strong>Interactividad:</strong> Haz clic en cualquier elemento del gráfico para aplicar filtros cruzados</li>
-            <li><strong>Navegación:</strong> Usa las pestañas inferiores para cambiar entre diferentes páginas del reporte</li>
-            <li><strong>Drill-down:</strong> Haz clic derecho en elementos para explorar niveles más detallados</li>
-            <li><strong>Tooltips:</strong> Pasa el cursor sobre los gráficos para ver información detallada</li>
+            <li><strong>Filtrado de Datos:</strong> Utilice los paneles de filtro lateral para segmentar información por municipio, propiedad o sensor específico</li>
+            <li><strong>Interactividad Cruzada:</strong> Haga clic en cualquier elemento visual para aplicar filtros dinámicos en todo el dashboard</li>
+            <li><strong>Navegación entre Páginas:</strong> Use las pestañas en la parte inferior del reporte para acceder a diferentes vistas analíticas</li>
+            <li><strong>Exploración Jerárquica:</strong> Haga clic derecho en elementos para activar drill-down y explorar niveles de detalle adicionales</li>
+            <li><strong>Información Contextual:</strong> Posicione el cursor sobre cualquier visualización para ver tooltips con métricas detalladas</li>
         </ul>
         
-        <h3 style="margin-top: 2rem;">📈 Páginas Disponibles en el Reporte</h3>
-        <p style="color: #666;">El dashboard contiene múltiples páginas con análisis especializados:</p>
+        <h3 style="margin-top: 2.5rem;">Estructura del Dashboard</h3>
+        <p style="color: #4a4a4a; margin-bottom: 1.5rem;">El reporte está organizado en múltiples páginas especializadas para análisis exhaustivo:</p>
         <ul>
-            <li><strong>Resumen Ejecutivo:</strong> KPIs principales y estado general del sistema</li>
-            <li><strong>Análisis por Parámetro:</strong> Detalles de cada uno de los 10 parámetros monitoreados</li>
-            <li><strong>Análisis Temporal:</strong> Tendencias y patrones a lo largo del tiempo</li>
-            <li><strong>Análisis Geográfico:</strong> Distribución por municipios y propiedades</li>
-            <li><strong>Alertas y Anomalías:</strong> Identificación de valores críticos y outliers</li>
-            <li><strong>Cumplimiento Normativo:</strong> Porcentaje de cumplimiento vs. estándares</li>
+            <li><strong>Resumen Ejecutivo:</strong> Vista consolidada de KPIs principales y estado operacional del sistema</li>
+            <li><strong>Análisis Paramétrico:</strong> Evaluación detallada de cada uno de los 10 parámetros fisicoquímicos monitoreados</li>
+            <li><strong>Análisis Temporal:</strong> Identificación de tendencias, patrones estacionales y comportamiento histórico</li>
+            <li><strong>Distribución Geográfica:</strong> Visualización por municipios, departamentos y propiedades específicas</li>
+            <li><strong>Sistema de Alertas:</strong> Identificación automática de valores críticos, outliers y anomalías estadísticas</li>
+            <li><strong>Cumplimiento Normativo:</strong> Evaluación de conformidad con estándares regulatorios y umbrales establecidos</li>
         </ul>
     </section>
 
-    <section class="dashboard-container" style="margin-top: 2rem;">
-        <h3 style="color: #1565c0; margin-bottom: 1rem;">🔬 Parámetros Monitoreados</h3>
+    <section class="dashboard-container" style="margin-top: 2.5rem;">
+        <h3 style="color: #0066cc; margin-bottom: 1.5rem; font-size: 1.4rem;">Parámetros de Calidad Monitoreados</h3>
         <div class="stats-grid">
             <div class="stat-card">
                 <h4>pH</h4>
-                <div class="stat-label">Acidez/Alcalinidad</div>
+                <div class="stat-label">Acidez / Alcalinidad</div>
             </div>
             <div class="stat-card">
                 <h4>O₂ Disuelto</h4>
@@ -58,7 +57,7 @@
                 <div class="stat-label">Desinfección</div>
             </div>
             <div class="stat-card">
-                <h4>Amonio</h4>
+                <h4>Amonio (NH₄⁺)</h4>
                 <div class="stat-label">Contaminación</div>
             </div>
             <div class="stat-card">
@@ -74,7 +73,7 @@
                 <div class="stat-label">Sólidos Totales</div>
             </div>
             <div class="stat-card">
-                <h4>Redox</h4>
+                <h4>Potencial Redox</h4>
                 <div class="stat-label">Oxidación</div>
             </div>
             <div class="stat-card">
@@ -82,7 +81,7 @@
                 <div class="stat-label">Térmica</div>
             </div>
             <div class="stat-card">
-                <h4>Nivel</h4>
+                <h4>Nivel de Agua</h4>
                 <div class="stat-label">Profundidad</div>
             </div>
         </div>
