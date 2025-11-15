@@ -3,64 +3,106 @@
 {% block content %}
 <div class="container">
     <section class="hero">
-        <h1>Sistema de Monitoreo de Calidad de Agua en Colombia</h1>
-        <p class="subtitle">Análisis y visualización de datos de calidad hídrica en el territorio colombiano</p>
+        <h1>Sistema de Business Intelligence para Calidad del Agua</h1>
+        <p class="subtitle">Transformando 4.3 millones de registros de sensores IoT en información accionable</p>
     </section>
 
     <section class="features">
         <div class="feature-card">
-            <h3>Datos en Tiempo Real</h3>
-            <p>Accede a información actualizada sobre la calidad del agua en diferentes departamentos de Colombia</p>
+            <h3>📡 Red de Sensores IoT</h3>
+            <p>497 sensores distribuidos en 40 propiedades y 98 municipios generando datos continuos de calidad del agua</p>
         </div>
         <div class="feature-card">
-            <h3></h3>Análisis con Power BI</h3>
-            <p>Visualizaciones interactivas y reportes detallados generados con Microsoft Power BI</p>
+            <h3>📊 Business Intelligence</h3>
+            <p>Data Warehouse multidimensional con esquema estrella conectado a Power BI para análisis avanzado</p>
         </div>
         <div class="feature-card">
-            <h3>Indicadores Clave</h3>
-            <p>Monitoreo de parámetros esenciales: pH, turbidez, contaminantes y más</p>
+            <h3>🔬 10 Parámetros Monitoreados</h3>
+            <p>pH, Oxígeno Disuelto, Cloro Residual, Amonio, Turbidez, Conductividad, STD, Redox, Temperatura y Nivel</p>
         </div>
     </section>
 
     <section class="quick-stats">
-        <h2>Resumen de Calidad por Departamento</h2>
-        <div id="stats-container">
-            <p>Cargando datos...</p>
+        <h2>📈 Datos del Sistema</h2>
+        <div class="stats-grid">
+            <div class="stat-card excelente">
+                <h4>Registros Procesados</h4>
+                <div class="stat-value">4.3M</div>
+                <div class="stat-label">Mediciones</div>
+            </div>
+            <div class="stat-card buena">
+                <h4>Sensores IoT</h4>
+                <div class="stat-value">497</div>
+                <div class="stat-label">Activos</div>
+            </div>
+            <div class="stat-card buena">
+                <h4>Cobertura</h4>
+                <div class="stat-value">98</div>
+                <div class="stat-label">Municipios</div>
+            </div>
+            <div class="stat-card excelente">
+                <h4>Propiedades</h4>
+                <div class="stat-value">40</div>
+                <div class="stat-label">Monitoreadas</div>
+            </div>
+            <div class="stat-card aceptable">
+                <h4>Parámetros</h4>
+                <div class="stat-value">10</div>
+                <div class="stat-label">Analizados</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" style="margin-top: 3rem;">
+        <h2 style="text-align: center; color: #1565c0; margin-bottom: 2rem;">📊 Parámetros de Calidad Monitoreados</h2>
+        <div class="tech-stack" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">pH</h3>
+                <p style="color: #666;">Nivel de acidez o alcalinidad del agua</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Oxígeno Disuelto</h3>
+                <p style="color: #666;">Cantidad de oxígeno disponible en el agua</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Cloro Residual Libre</h3>
+                <p style="color: #666;">Nivel de desinfección del agua</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Amonio</h3>
+                <p style="color: #666;">Indicador de contaminación orgánica</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Turbidez</h3>
+                <p style="color: #666;">Claridad y transparencia del agua</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Conductividad Eléctrica</h3>
+                <p style="color: #666;">Cantidad de sales disueltas</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Sólidos Totales Disueltos</h3>
+                <p style="color: #666;">Concentración de sustancias disueltas</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Potencial Redox</h3>
+                <p style="color: #666;">Capacidad de oxidación-reducción</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Temperatura</h3>
+                <p style="color: #666;">Temperatura del agua monitoreada</p>
+            </div>
+            <div class="tech-item" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #1565c0; margin-bottom: 0.5rem;">Nivel de Agua</h3>
+                <p style="color: #666;">Profundidad y volumen del agua</p>
+            </div>
         </div>
     </section>
 
     <section class="cta">
-        <h2>Explora el Dashboard Completo</h2>
+        <h2>🚀 Explora el Dashboard Completo de Power BI</h2>
+        <p style="margin: 1rem 0;">Accede a visualizaciones interactivas, análisis de tendencias y KPIs en tiempo real</p>
         <a href="{{ url_for('dashboard') }}" class="btn-primary">Ver Dashboard Power BI</a>
     </section>
 </div>
-
-<script>
-    // Cargar datos desde la API
-    fetch('/api/calidad-agua')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('stats-container');
-            let html = '<div class="stats-grid">';
-            
-            data.departamentos.forEach(dept => {
-                const estadoClass = dept.estado.toLowerCase().replace(' ', '-');
-                html += `
-                    <div class="stat-card ${estadoClass}">
-                        <h4>${dept.nombre}</h4>
-                        <div class="stat-value">${dept.calidad}%</div>
-                        <div class="stat-label">${dept.estado}</div>
-                    </div>
-                `;
-            });
-            
-            html += '</div>';
-            container.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error cargando datos:', error);
-            document.getElementById('stats-container').innerHTML = 
-                '<p class="error">Error al cargar los datos</p>';
-        });
-</script>
 {% endblock %}

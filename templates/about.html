@@ -3,59 +3,176 @@
 {% block content %}
 <div class="container">
     <section class="about-section">
-        <h1>Acerca del Proyecto</h1>
+        <h1>📊 Acerca del Proyecto</h1>
         
         <div class="about-content">
-            <h2>🎯 Objetivo</h2>
+            <h2>🎯 Problemática Abordada</h2>
             <p>
-                Este proyecto tiene como objetivo monitorear y analizar la calidad del agua en Colombia,
-                proporcionando información valiosa para la toma de decisiones en políticas públicas
-                y concienciación ciudadana sobre el recurso hídrico.
+                El monitoreo de la calidad del agua enfrenta desafíos críticos en la gestión de infraestructura 
+                distribuida geográficamente. Las organizaciones que operan sistemas de agua en múltiples municipios 
+                deben garantizar el cumplimiento normativo continuo de parámetros fisicoquímicos y biológicos, 
+                pero enfrentan tres problemas principales:
             </p>
+            <ul class="indicators-list">
+                <li><strong>Volumen de datos no gestionable manualmente:</strong> Con cientos de sensores generando 
+                mediciones cada hora, se acumulan millones de registros que resultan imposibles de analizar sin 
+                herramientas especializadas.</li>
+                <li><strong>Detección reactiva de problemas:</strong> Los métodos tradicionales de supervisión solo 
+                identifican problemas cuando ya han escalado a niveles críticos, resultando en costos elevados de 
+                remediación y posibles sanciones regulatorias.</li>
+                <li><strong>Falta de visibilidad operacional:</strong> Los responsables de toma de decisiones carecen 
+                de herramientas que integren datos históricos, identifiquen patrones y proporcionen alertas tempranas 
+                sobre desviaciones en la calidad del agua.</li>
+            </ul>
+            <p style="margin-top: 1rem;">
+                Esta situación genera riesgos para la salud pública, costos operacionales innecesarios y dificultad 
+                para demostrar cumplimiento normativo ante autoridades regulatorias.
+            </p>
+
+            <h2>💡 Justificación</h2>
+            <p>El proyecto se justifica por tres razones fundamentales:</p>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h3>Transformación Digital</h3>
+                    <p>La transición de modelos reactivos a predictivos en el monitoreo de calidad del agua es esencial 
+                    para proteger la salud pública. Las tecnologías de Big Data e IoT permiten procesar grandes volúmenes 
+                    de información en tiempo real.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Optimización de Recursos</h3>
+                    <p>El análisis sistemático de datos históricos permite priorizar intervenciones, optimizar programas 
+                    de mantenimiento preventivo y asignar recursos técnicos donde realmente se necesitan.</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Cumplimiento Normativo</h3>
+                    <p>Un sistema de Business Intelligence proporciona trazabilidad completa, reportes automatizados y 
+                    métricas objetivas que facilitan auditorías y certificaciones ante autoridades ambientales.</p>
+                </div>
+            </div>
+
+            <h2>🎯 Objetivo General</h2>
+            <p>
+                Desarrollar un sistema de Business Intelligence basado en Power BI conectado a un Data Warehouse 
+                multidimensional que transforme datos masivos de sensores IoT en información accionable para la toma 
+                de decisiones en gestión de calidad del agua.
+            </p>
+
+            <h2>📋 Objetivos Específicos</h2>
+            <ul class="indicators-list">
+                <li>Diseñar e implementar un modelo dimensional que integre datos de sensores IoT, propiedades, 
+                ubicaciones geográficas y dimensión temporal, siguiendo esquema estrella (star schema).</li>
+                <li>Crear medidas DAX especializadas que calculen indicadores clave de desempeño, incluyendo 
+                porcentajes de cumplimiento por parámetro, alertas críticas, tendencias temporales y métricas 
+                normalizadas.</li>
+                <li>Identificar patrones, correlaciones y anomalías en el comportamiento de los parámetros de 
+                calidad del agua, diferenciando entre variaciones normales y situaciones que requieren intervención.</li>
+                <li>Generar recomendaciones basadas en evidencia para optimización operacional, mantenimiento 
+                preventivo y asignación de recursos, derivadas del análisis de datos históricos.</li>
+                <li>Demostrar capacidades técnicas en conexión de datos, transformación ETL, modelado dimensional, 
+                desarrollo de visualizaciones interactivas y comunicación efectiva de hallazgos mediante storytelling.</li>
+            </ul>
+
+            <h2>📊 Alcance Técnico</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h3>Fuente de Datos</h3>
+                    <p>Data Warehouse en SQL Server (ProyectoAguaDW) con esquema dimensional</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Volumen</h3>
+                    <p>4,365,648 registros de 497 sensores en 40 propiedades y 98 municipios</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Herramientas</h3>
+                    <p>Power BI Desktop, SQL Server, DAX, Flask para visualización web</p>
+                </div>
+            </div>
 
             <h2>🔧 Tecnologías Utilizadas</h2>
             <div class="tech-stack">
                 <div class="tech-item">
-                    <h3>Flask</h3>
-                    <p>Framework web de Python para el backend y API REST</p>
-                </div>
-                <div class="tech-item">
                     <h3>Power BI</h3>
-                    <p>Herramienta de Microsoft para visualización y análisis de datos</p>
+                    <p>Plataforma de Business Intelligence de Microsoft para modelado, análisis y visualización de datos</p>
                 </div>
                 <div class="tech-item">
-                    <h3>HTML/CSS/JavaScript</h3>
-                    <p>Tecnologías frontend para la interfaz de usuario</p>
+                    <h3>SQL Server</h3>
+                    <p>Data Warehouse con modelo dimensional (esquema estrella) para almacenamiento optimizado</p>
+                </div>
+                <div class="tech-item">
+                    <h3>DAX (Data Analysis Expressions)</h3>
+                    <p>Lenguaje de fórmulas para cálculos avanzados y medidas de KPIs</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Flask</h3>
+                    <p>Framework web de Python para exposición de reportes y creación de API REST</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Sensores IoT</h3>
+                    <p>Red de 497 dispositivos de medición distribuidos geográficamente</p>
+                </div>
+                <div class="tech-item">
+                    <h3>ETL</h3>
+                    <p>Procesos de extracción, transformación y carga de datos desde sensores al Data Warehouse</p>
                 </div>
             </div>
 
-            <h2>📊 Indicadores Analizados</h2>
+            <h2>📊 Parámetros Monitoreados</h2>
             <ul class="indicators-list">
-                <li><strong>pH:</strong> Nivel de acidez o alcalinidad del agua</li>
-                <li><strong>Turbidez:</strong> Claridad del agua</li>
-                <li><strong>Contaminantes:</strong> Presencia de sustancias nocivas</li>
-                <li><strong>Oxígeno Disuelto:</strong> Cantidad de oxígeno en el agua</li>
-                <li><strong>Temperatura:</strong> Temperatura del agua</li>
-                <li><strong>Conductividad:</strong> Capacidad de conducir electricidad</li>
+                <li><strong>pH:</strong> Nivel de acidez o alcalinidad del agua (escala 0-14)</li>
+                <li><strong>Oxígeno Disuelto:</strong> Cantidad de oxígeno disponible para organismos acuáticos</li>
+                <li><strong>Cloro Residual Libre:</strong> Nivel de desinfección activa en el agua</li>
+                <li><strong>Amonio (NH₄⁺):</strong> Indicador de contaminación orgánica y nitrificación</li>
+                <li><strong>Turbidez:</strong> Medida de claridad del agua (NTU)</li>
+                <li><strong>Conductividad Eléctrica:</strong> Cantidad de iones disueltos (µS/cm)</li>
+                <li><strong>Sólidos Totales Disueltos (TDS):</strong> Concentración de sustancias disueltas (mg/L)</li>
+                <li><strong>Potencial Redox (ORP):</strong> Capacidad de oxidación-reducción del agua (mV)</li>
+                <li><strong>Temperatura:</strong> Temperatura del agua en grados Celsius</li>
+                <li><strong>Nivel de Agua:</strong> Profundidad o volumen del cuerpo de agua</li>
             </ul>
 
-            <h2>🗺️ Cobertura</h2>
+            <h2>🗺️ Cobertura Geográfica</h2>
             <p>
-                El proyecto cubre los principales departamentos de Colombia, con énfasis en:
+                El sistema monitorea <strong>98 municipios</strong> en Colombia, con <strong>40 propiedades</strong> 
+                distribuidas estratégicamente para garantizar la cobertura completa del sistema de agua. Los 
+                <strong>497 sensores IoT</strong> generan mediciones continuas que alimentan el Data Warehouse.
             </p>
-            <ul>
-                <li>Antioquia</li>
-                <li>Cundinamarca</li>
-                <li>Valle del Cauca</li>
-                <li>Atlántico</li>
-                <li>Santander</li>
+
+            <h2>📈 Modelo de Datos</h2>
+            <p>
+                El proyecto implementa un <strong>esquema estrella (star schema)</strong> que integra:
+            </p>
+            <ul class="indicators-list">
+                <li><strong>Tabla de Hechos:</strong> Mediciones de sensores con sus valores y timestamps</li>
+                <li><strong>Dimensión Sensor:</strong> Información de cada sensor IoT</li>
+                <li><strong>Dimensión Propiedad:</strong> Datos de las 40 propiedades monitoreadas</li>
+                <li><strong>Dimensión Ubicación:</strong> Jerarquía geográfica (municipio, departamento, región)</li>
+                <li><strong>Dimensión Temporal:</strong> Año, mes, día, hora para análisis de tendencias</li>
+                <li><strong>Dimensión Parámetro:</strong> Los 10 parámetros de calidad monitoreados</li>
             </ul>
 
-            <h2>📈 Metodología</h2>
-            <p>
-                Los datos son recopilados de fuentes oficiales y procesados mediante análisis estadístico.
-                Los reportes de Power BI se actualizan periódicamente para reflejar la información más reciente.
-            </p>
+            <h2>🎯 Beneficios del Sistema</h2>
+            <ul class="indicators-list">
+                <li>✅ <strong>Detección temprana</strong> de anomalías en la calidad del agua</li>
+                <li>✅ <strong>Cumplimiento normativo</strong> demostrable con reportes automatizados</li>
+                <li>✅ <strong>Optimización de recursos</strong> mediante análisis predictivo</li>
+                <li>✅ <strong>Reducción de costos</strong> operacionales y de remediación</li>
+                <li>✅ <strong>Toma de decisiones</strong> basada en datos y evidencia</li>
+                <li>✅ <strong>Trazabilidad completa</strong> de todos los parámetros medidos</li>
+                <li>✅ <strong>Alertas automáticas</strong> cuando se superan umbrales críticos</li>
+                <li>✅ <strong>Visualizaciones interactivas</strong> para análisis exploratorio</li>
+            </ul>
+
+            <h2>👨‍💻 Capacidades Técnicas Demostradas</h2>
+            <ul class="indicators-list">
+                <li>Conexión y extracción de datos desde SQL Server Data Warehouse</li>
+                <li>Transformación ETL y modelado dimensional (esquema estrella)</li>
+                <li>Desarrollo de medidas DAX para cálculos complejos y KPIs</li>
+                <li>Creación de visualizaciones interactivas en Power BI</li>
+                <li>Análisis de patrones, tendencias y anomalías en big data</li>
+                <li>Integración de Power BI con aplicaciones web (Flask)</li>
+                <li>Comunicación efectiva de hallazgos mediante storytelling visual</li>
+            </ul>
         </div>
     </section>
 </div>

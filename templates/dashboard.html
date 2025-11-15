@@ -1,104 +1,91 @@
 {% extends "base.html" %}
 
-{% block extra_head %}
-<!-- Power BI JavaScript SDK -->
-<script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.19.1/dist/powerbi.min.js"></script>
-{% endblock %}
-
 {% block content %}
 <div class="container-fluid">
     <section class="dashboard-header">
-        <h1>Dashboard de Calidad de Agua</h1>
-        <p>Reportes interactivos generados con Power BI</p>
+        <h1>📊 Dashboard de Business Intelligence - Calidad del Agua</h1>
+        <p>Análisis de 4.3 millones de mediciones de 497 sensores IoT</p>
     </section>
 
     <section class="dashboard-container">
-       <iframe title="agua6+" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiMjczNjZkMDQtNDVkYi00MjkzLTg5NDQtMzUxNjIzMGFiZmE0IiwidCI6IjA3ZGE2N2EwLTFmNDMtNGU4Yy05NzdmLTVmODhiNjQ3MGVlNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+        <!-- Power BI Report Embed -->
+        <iframe 
+            title="Sistema BI Calidad de Agua" 
+            width="100%" 
+            height="650" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiMjczNjZkMDQtNDVkYi00MjkzLTg5NDQtMzUxNjIzMGFiZmE0IiwidCI6IjA3ZGE2N2EwLTFmNDMtNGU4Yy05NzdmLTVmODhiNjQ3MGVlNiIsImMiOjR9" 
+            frameborder="0" 
+            allowFullScreen="true"
+            style="border: none; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1);">
+        </iframe>
     </section>
 
     <section class="instructions">
-        <h3>Instrucciones de uso</h3>
+        <h3>💡 Instrucciones de uso del Dashboard</h3>
         <ul>
-            <li>Usa los filtros del reporte para explorar datos por región</li>
-            <li>Haz clic en los elementos del gráfico para ver detalles</li>
-            <li>Usa los botones de navegación para cambiar entre páginas del reporte</li>
+            <li><strong>Filtros:</strong> Utiliza los filtros laterales para explorar datos por municipio, propiedad o sensor</li>
+            <li><strong>Interactividad:</strong> Haz clic en cualquier elemento del gráfico para aplicar filtros cruzados</li>
+            <li><strong>Navegación:</strong> Usa las pestañas inferiores para cambiar entre diferentes páginas del reporte</li>
+            <li><strong>Drill-down:</strong> Haz clic derecho en elementos para explorar niveles más detallados</li>
+            <li><strong>Tooltips:</strong> Pasa el cursor sobre los gráficos para ver información detallada</li>
+        </ul>
+        
+        <h3 style="margin-top: 2rem;">📈 Páginas Disponibles en el Reporte</h3>
+        <p style="color: #666;">El dashboard contiene múltiples páginas con análisis especializados:</p>
+        <ul>
+            <li><strong>Resumen Ejecutivo:</strong> KPIs principales y estado general del sistema</li>
+            <li><strong>Análisis por Parámetro:</strong> Detalles de cada uno de los 10 parámetros monitoreados</li>
+            <li><strong>Análisis Temporal:</strong> Tendencias y patrones a lo largo del tiempo</li>
+            <li><strong>Análisis Geográfico:</strong> Distribución por municipios y propiedades</li>
+            <li><strong>Alertas y Anomalías:</strong> Identificación de valores críticos y outliers</li>
+            <li><strong>Cumplimiento Normativo:</strong> Porcentaje de cumplimiento vs. estándares</li>
         </ul>
     </section>
+
+    <section class="dashboard-container" style="margin-top: 2rem;">
+        <h3 style="color: #1565c0; margin-bottom: 1rem;">🔬 Parámetros Monitoreados</h3>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>pH</h4>
+                <div class="stat-label">Acidez/Alcalinidad</div>
+            </div>
+            <div class="stat-card">
+                <h4>O₂ Disuelto</h4>
+                <div class="stat-label">Oxigenación</div>
+            </div>
+            <div class="stat-card">
+                <h4>Cloro Residual</h4>
+                <div class="stat-label">Desinfección</div>
+            </div>
+            <div class="stat-card">
+                <h4>Amonio</h4>
+                <div class="stat-label">Contaminación</div>
+            </div>
+            <div class="stat-card">
+                <h4>Turbidez</h4>
+                <div class="stat-label">Claridad</div>
+            </div>
+            <div class="stat-card">
+                <h4>Conductividad</h4>
+                <div class="stat-label">Sales Disueltas</div>
+            </div>
+            <div class="stat-card">
+                <h4>TDS</h4>
+                <div class="stat-label">Sólidos Totales</div>
+            </div>
+            <div class="stat-card">
+                <h4>Redox</h4>
+                <div class="stat-label">Oxidación</div>
+            </div>
+            <div class="stat-card">
+                <h4>Temperatura</h4>
+                <div class="stat-label">Térmica</div>
+            </div>
+            <div class="stat-card">
+                <h4>Nivel</h4>
+                <div class="stat-label">Profundidad</div>
+            </div>
+        </div>
+    </section>
 </div>
-
-<script>
-    // Configuración de Power BI
-    const reportConfig = {
-        reportId: '{{ powerbi_config.report_id }}',
-        groupId: '{{ powerbi_config.group_id }}',
-        embedUrl: '{{ powerbi_config.embed_url }}'
-    };
-
-    // Función para cargar el reporte de Power BI
-    function loadPowerBIReport() {
-        // Verificar si tenemos la configuración necesaria
-        if (!reportConfig.embedUrl || reportConfig.embedUrl === 'TU_EMBED_URL') {
-            document.getElementById('powerbi-report').innerHTML = `
-                <div class="config-notice">
-                    <h3>⚙️ Configuración Pendiente</h3>
-                    <p>Para ver el reporte de Power BI, necesitas configurar los siguientes valores en <code>app.py</code>:</p>
-                    <ul>
-                        <li><strong>report_id:</strong> ID del reporte de Power BI</li>
-                        <li><strong>group_id:</strong> ID del workspace</li>
-                        <li><strong>embed_url:</strong> URL de embed del reporte</li>
-                    </ul>
-                    <p>Sigue las instrucciones en la documentación para obtener estos valores.</p>
-                </div>
-            `;
-            return;
-        }
-
-        // Configuración del embed
-        const embedConfig = {
-            type: 'report',
-            id: reportConfig.reportId,
-            embedUrl: reportConfig.embedUrl,
-            accessToken: 'TOKEN_AQUI', // En producción, obtener del backend
-            tokenType: window['powerbi-client'].models.TokenType.Embed,
-            settings: {
-                panes: {
-                    filters: {
-                        expanded: false,
-                        visible: true
-                    }
-                },
-                background: window['powerbi-client'].models.BackgroundType.Transparent,
-                filterPaneEnabled: true,
-                navContentPaneEnabled: true
-            }
-        };
-
-        // Obtener el contenedor
-        const reportContainer = document.getElementById('powerbi-report');
-        
-        // Embed del reporte
-        const powerbi = window['powerbi'];
-        const report = powerbi.embed(reportContainer, embedConfig);
-
-        // Eventos
-        report.off("loaded");
-        report.on("loaded", function () {
-            console.log("Reporte cargado exitosamente");
-        });
-
-        report.off("error");
-        report.on("error", function (event) {
-            console.error("Error al cargar el reporte:", event.detail);
-            reportContainer.innerHTML = `
-                <div class="error-notice">
-                    <h3>❌ Error al cargar el reporte</h3>
-                    <p>No se pudo cargar el reporte de Power BI. Verifica tu configuración.</p>
-                </div>
-            `;
-        });
-    }
-
-    // Cargar el reporte cuando la página esté lista
-    document.addEventListener('DOMContentLoaded', loadPowerBIReport);
-</script>
 {% endblock %}
