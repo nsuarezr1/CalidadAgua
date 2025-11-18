@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 import os
-
+#Correcciones finales
 app = Flask(__name__)
 
 # Configuración para Power BI
