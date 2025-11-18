@@ -1,9 +1,15 @@
 from flask import Flask, render_template, jsonify
 import os
-#
+
 app = Flask(__name__)
 
-
+# Configuración para Power BI
+# Estos valores los obtendrás de Power BI Service
+POWERBI_CONFIG = {
+    'report_id': 'TU_REPORT_ID',  # ID del reporte
+    'group_id': 'TU_GROUP_ID',    # ID del workspace
+    'embed_url': 'TU_EMBED_URL'   # URL de embed del reporte
+}
 
 @app.route('/')
 def index():
