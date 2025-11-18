@@ -1,15 +1,8 @@
 from flask import Flask, render_template, jsonify
-import os
-#Correcciones finales
+
+
 app = Flask(__name__)
 
-# Configuración para Power BI
-# Estos valores los obtendrás de Power BI Service
-POWERBI_CONFIG = {
-    'report_id': 'TU_REPORT_ID',  # ID del reporte
-    'group_id': 'TU_GROUP_ID',    # ID del workspace
-    'embed_url': 'TU_EMBED_URL'   # URL de embed del reporte
-}
 
 @app.route('/')
 def index():
@@ -38,10 +31,5 @@ def api_calidad_agua():
     }
     return jsonify(datos_ejemplo)
 
-@app.route('/about')
-def about():
-    """Página sobre el proyecto"""
-    return render_template('about.html', title='Sobre el Proyecto')
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(debug=True)
