@@ -1,7 +1,8 @@
 from flask import Flask, render_template, jsonify
-
-
+import os
+#
 app = Flask(__name__)
+
 
 
 @app.route('/')
@@ -31,5 +32,10 @@ def api_calidad_agua():
     }
     return jsonify(datos_ejemplo)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route('/about')
+def about():
+    """Página sobre el proyecto"""
+    return render_template('about.html', title='Sobre el Proyecto')
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
